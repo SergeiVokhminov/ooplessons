@@ -8,9 +8,7 @@ from src.utils import read_json, create_json
 
 @patch("builtins.open")
 def test_get_json_ok(open_mock: Any) -> Any:
-    open_mock.return_value.__enter__.return_value.read.return_value = (
-        '[{"name": "test"}, {"name": "more"}]'
-    )
+    open_mock.return_value.__enter__.return_value.read.return_value = '[{"name": "test"}, {"name": "more"}]'
     assert read_json("any_path") == [{"name": "test"}, {"name": "more"}]
 
 
@@ -25,8 +23,8 @@ def test_create_json_init(json_data):
     assert result[0].name == "Смартфоны"
     assert result[1].name == "Телевизоры"
     assert (
-            result[0].description
-            == "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни"
+        result[0].description
+        == "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни"
     )
     assert (
         result[1].description

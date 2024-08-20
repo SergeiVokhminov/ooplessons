@@ -21,7 +21,7 @@ def read_json(path: str) -> list[dict]:
         raise ValueError("Возникла ошибка при обработке файла!")
 
 
-def create_json(data):
+def create_json(data: list[dict]) -> list:
     """
     :param data:
     :return:

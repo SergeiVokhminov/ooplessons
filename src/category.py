@@ -21,9 +21,13 @@ class Category:
 if __name__ == "__main__":
     products = Product("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     products1 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-    products2 = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
+    products2 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
 
-    user_category = Category("Смартфоны", "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни", [products, products1])
+    user_category = Category(
+        "Смартфоны",
+        "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни",
+        [products, products1],
+    )
     user_category1 = Category("Телевизоры", "Фоновая подсветка", [products2])
 
     print(user_category.name)
