@@ -5,15 +5,27 @@ from src.product import Product
 from src.category import Category
 
 
-def read_json(path: str) -> dict:
-    full_path = os.path.abspath(path)
+def read_json(path: str) -> list[dict]:
+    """
+    Функция чтения JSON-файла
+    :param path: принимает JSON-файл.
+    :return: Возвращает список словарей.
+    """
 
-    with open(full_path, "r", encoding="UTF-8") as f:
-        data_file = json.load(f)
-    return data_file
+    try:
+        full_path = os.path.abspath(path)
+        with open(full_path, "r", encoding="UTF-8") as f:
+            data_file = json.load(f)
+            return data_file
+    except Exception:
+        raise ValueError("Возникла ошибка при обработке файла!")
 
 
 def create_json(data):
+    """
+    :param data:
+    :return:
+    """
     users_list = []
     for category in data:
         product_list = []
@@ -29,5 +41,7 @@ if __name__ == "__main__":
     user_file = read_json("../data/products.json")
     print(user_file)
     users_data = create_json(user_file)
+    print()
+    print(users_data)
     print(users_data[0].name)
     print(users_data[1].name)
