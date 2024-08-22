@@ -29,7 +29,7 @@ def test_category_init(first_category: Any, second_category: Any, category: Any)
 def test_category_product_none(category_product_none: Any) -> Any:
     assert category_product_none.name == "Телевизоры"
     assert category_product_none.description == "Фоновая подсветка"
-    assert len(category_product_none.products) == 0
+    assert len(category_product_none.product) == 0
 
 
 def test_product_price(first_product: Any, capsys: Any) -> Any:
@@ -41,4 +41,4 @@ def test_product_price(first_product: Any, capsys: Any) -> Any:
 def test_str_product(category: Any) -> Any:
     product = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
     category.add_product(product)
-    assert category.products == '55" QLED 4K, 123000.0 руб. Остаток: 14 шт.\n'
+    assert category.product == '55" QLED 4K, 123000.0 руб. Остаток: 14 шт.\n'
