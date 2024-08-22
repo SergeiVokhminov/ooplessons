@@ -21,7 +21,7 @@ class Category:
     #  Создаем атрибут как геттер (используя декоратор). Позволяет обращаться к методу, как атрибуту класса.
     #  Данный атрибут будет возвращать строку.
     @property
-    def products(self):
+    def products(self) -> str:
         """Вывод списка товаров из приватного атрибута."""
         products_str = ""
         for product in self.__products:
@@ -33,14 +33,14 @@ class Category:
         for product in self.__products:
             if product.name == new_product.name:
                 product.quantity += new_product.quantity
-                if product.price <= new_product.price:
+                if product.price < new_product.price:
                     product.price = new_product.price
                 return
 
-        else:
-            self.__products.append(new_product)
-            Category.product_count += 1
-            return self.__products
+            else:
+                self.__products.append(new_product)
+                Category.product_count += 1
+                return self.__products
 
 
 if __name__ == "__main__":
@@ -70,8 +70,8 @@ if __name__ == "__main__":
     print(category2.product_count)
     print()
 
-    products4 = Product('45" QLED', "Фоновая подсветка", 101000.0, 3)
-    category2.product = products4
+    products4 = Product('45" FullHD', "Smart TV", 101000.0, 3)
+    category2.add_product(products4)
 
     print(category2.products)
     print(category2.product_count)
