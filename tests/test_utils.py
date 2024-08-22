@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import pytest
 
-from src.utils import read_json, create_json
+from src.utils import create_json, read_json
 
 
 @patch("builtins.open")
