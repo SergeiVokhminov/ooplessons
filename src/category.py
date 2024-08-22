@@ -1,3 +1,5 @@
+from typing import Any
+
 from src.product import Product
 
 
@@ -10,7 +12,7 @@ class Category:
     category_count = 0
     product_count = 0
 
-    def __init__(self, name, description, products=None):
+    def __init__(self, name: str, description: str, products) -> None:
         self.name = name
         self.description = description
         #  Сделали атрибут приватным.
@@ -21,14 +23,14 @@ class Category:
     #  Создаем атрибут как геттер (используя декоратор). Позволяет обращаться к методу, как атрибуту класса.
     #  Данный атрибут будет возвращать строку.
     @property
-    def products(self) -> str:
+    def new_products(self) -> str:
         """Вывод списка товаров из приватного атрибута."""
         products_str = ""
         for product in self.__products:
             products_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
         return products_str
 
-    def add_product(self, new_product: Product):
+    def add_product(self, new_product: Product) -> Any:
         """Добавление товаров и запись в приватный атрибут списка товаров."""
         for product in self.__products:
             if product.name == new_product.name:
@@ -56,7 +58,7 @@ if __name__ == "__main__":
 
     print(category1.name)
     print(category1.description)
-    print(category1.products)
+    print(category1.new_products)
     print(category1.category_count)
     print(category1.product_count)
     print()
@@ -65,7 +67,7 @@ if __name__ == "__main__":
 
     print(category2.name)
     print(category2.description)
-    print(category2.products)
+    print(category2.new_products)
     print(category2.category_count)
     print(category2.product_count)
     print()
@@ -73,6 +75,6 @@ if __name__ == "__main__":
     products4 = Product('45" FullHD', "Smart TV", 101000.0, 3)
     category2.add_product(products4)
 
-    print(category2.products)
+    print(category2.new_products)
     print(category2.product_count)
     print(category2.category_count)

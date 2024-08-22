@@ -18,7 +18,7 @@ def test_json_error() -> None:
         assert str(ex.value) == "Возникла ошибка при обработке файла!"
 
 
-def test_create_json_init(json_data):
+def test_create_json_init(json_data: list[dict]) -> Any:
     result = create_json(json_data)
     assert result[0].name == "Смартфоны"
     assert result[1].name == "Телевизоры"

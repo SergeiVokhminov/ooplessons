@@ -1,7 +1,9 @@
+from typing import Any
+
 from src.product import Product
 
 
-def test_category_init(first_category, second_category, category):
+def test_category_init(first_category: Any, second_category: Any, category: Any) -> Any:
     assert first_category.name == "Смартфоны"
     assert (
         first_category.description
@@ -24,19 +26,19 @@ def test_category_init(first_category, second_category, category):
     assert category.category_count == 3
 
 
-def test_category_product_none(category_product_none):
+def test_category_product_none(category_product_none: Any) -> Any:
     assert category_product_none.name == "Телевизоры"
     assert category_product_none.description == "Фоновая подсветка"
     assert len(category_product_none.products) == 0
 
 
-def test_product_price(first_product, capsys):
+def test_product_price(first_product: Any, capsys: Any) -> Any:
     first_product.price = 0
     message = capsys.readouterr()
     assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
 
 
-def test_str_product(category):
+def test_str_product(category: Any) -> Any:
     product = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
     category.add_product(product)
     assert category.products == '55" QLED 4K, 123000.0 руб. Остаток: 14 шт.\n'

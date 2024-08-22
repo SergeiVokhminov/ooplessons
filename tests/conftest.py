@@ -1,3 +1,5 @@
+from typing import Any
+
 import pytest
 
 from src.category import Category
@@ -5,37 +7,37 @@ from src.product import Product
 
 
 @pytest.fixture
-def first_product():
+def first_product() -> Any:
     return Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
 
 
 @pytest.fixture
-def second_product():
+def second_product() -> Any:
     return Product("Iphone 14", "256GB, Blue space", 160000, 6)
 
 
 @pytest.fixture
-def third_product():
+def third_product() -> Any:
     return {"name": "Iphone 15pro", "description": "512GB", "price": 2160000, "quantity": 2}
 
 
 @pytest.fixture
-def product_none_name():
+def product_none_name() -> Any:
     return Product("", "Фоновая подсветка", 123000.0, 7)
 
 
 @pytest.fixture
-def product_name():
+def product_name() -> str:
     return "Samsung Galaxy C23 Ultra"
 
 
 @pytest.fixture
-def product_price():
+def product_price() -> int | float:
     return 123000.0
 
 
 @pytest.fixture
-def first_category():
+def first_category() -> Any:
     return Category(
         name="Смартфоны",
         description="Смартфоны, как средство не только коммуникации, "
@@ -45,7 +47,7 @@ def first_category():
 
 
 @pytest.fixture
-def second_category():
+def second_category() -> Any:
     return Category(
         name="Смартфоны",
         description="Смартфоны, как средство не только коммуникации, "
@@ -58,7 +60,7 @@ def second_category():
 
 
 @pytest.fixture
-def category():
+def category() -> Any:
     return Category(
         name="Телевизоры",
         description="Современный телевизор, который позволяет наслаждаться просмотром, "
@@ -68,12 +70,12 @@ def category():
 
 
 @pytest.fixture
-def category_product_none():
+def category_product_none() -> Any:
     return Category(name="Телевизоры", description="Фоновая подсветка", products=None)
 
 
 @pytest.fixture
-def json_data():
+def json_data() -> Any:
     return [
         {
             "name": "Смартфоны",
