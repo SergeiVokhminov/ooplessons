@@ -1,3 +1,6 @@
+from src.product import Product
+
+
 def test_product_init(first_product, second_product):
     assert first_product.name == "Iphone 15"
     assert first_product.description == "512GB, Gray space"
@@ -20,5 +23,13 @@ def test_product_name(product_name):
     assert product_name == "Samsung Galaxy C23 Ultra"
 
 
-def test_product_price_(product_price):
+def test_product_price(product_price):
     assert product_price == 123000.0
+
+
+def test_third_product(third_product):
+    new_product = Product.new_product(third_product)
+    assert new_product.name == "Iphone 15pro"
+    assert new_product.description == "512GB"
+    assert new_product.price == 2160000
+    assert new_product.quantity == 2
