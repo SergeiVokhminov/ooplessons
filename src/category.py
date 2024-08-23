@@ -37,12 +37,8 @@ class Category:
                 product.quantity += new_product.quantity
                 if product.price < new_product.price:
                     product.price = new_product.price
-                return
-
-            else:
-                self.__products.append(new_product)
+                    self.__products.append(new_product)
                 Category.product_count += 1
-                return self.__products
 
 
 if __name__ == "__main__":
@@ -72,7 +68,7 @@ if __name__ == "__main__":
     print(category2.product_count)
     print()
 
-    products4 = Product('45" FullHD', "Smart TV", 101000.0, 3)
+    products4 = Product('55" QLED 4K', "Smart TV", 101000.0, 3)
     category2.add_product(products4)
 
     print(category2.product)
