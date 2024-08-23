@@ -38,7 +38,7 @@ class Category:
                 if product.price < new_product.price:
                     product.price = new_product.price
                     self.__products.append(new_product)
-                Category.product_count += 1
+            Category.product_count += 1
 
 
 if __name__ == "__main__":
