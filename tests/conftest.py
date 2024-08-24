@@ -61,12 +61,9 @@ def second_category() -> Any:
 
 @pytest.fixture
 def category() -> Any:
-    return Category(
-        name="Телевизоры",
-        description="Современный телевизор, который позволяет наслаждаться просмотром, "
-        "станет вашим другом и помощником",
-        products=[Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)],
-    )
+    product = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
+    product1 = Product('50" QLED', "Фоновая подсветка", 113000.0, 3)
+    return Category("Телевизоры", "Фоновая подсветка", [product, product1])
 
 
 @pytest.fixture
