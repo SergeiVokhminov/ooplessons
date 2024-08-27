@@ -1,3 +1,5 @@
+from typing import Any
+
 from src.product import Product
 
 
@@ -10,33 +12,60 @@ class Category:
     category_count = 0
     product_count = 0
 
-    def __init__(self, name, description, products=None):
+    def __init__(self, name: str, description: str, products=None) -> None:
         self.name = name
         self.description = description
-        self.products = products if products else []
+        #  Сделали атрибут приватным.
+        self.__products = products if products else []
         Category.category_count += 1
-        Category.product_count += len(products) if products else 0
+        Category.product_count += len(self.__products)
+
+    #  Создаем атрибут как геттер (используя декоратор). Позволяет обращаться к методу, как атрибуту класса.
+    #  Данный атрибут будет возвращать строку.
+    @property
+    def products(self) -> str:
+        """Вывод списка товаров из приватного атрибута."""
+        products_str = ""
+        for product in self.__products:
+            products_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+        return products_str
+
+    def add_product(self, new_product: Product) -> Any:
+        """Добавление товаров и запись в приватный атрибут списка товаров."""
+        self.__products.append(new_product)
+        Category.product_count += 1
 
 
 if __name__ == "__main__":
-    products = Product("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
-    products1 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-    products2 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
+    products1 = Product("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    products2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    products3 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
 
-    user_category = Category(
+    category1 = Category(
         "Смартфоны",
-        "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни",
-        [products, products1],
+        "Смартфоны, как средство не только коммуникации, " "но и получение дополнительных функций для удобства жизни",
+        [products1, products2],
     )
-    user_category1 = Category("Телевизоры", "Фоновая подсветка", [products2])
 
-    print(user_category.name)
-    print(user_category.description)
-    print(user_category.products)
+    print(category1.name)
+    print(category1.description)
+    print(category1.products)
+    print(category1.category_count)
+    print(category1.product_count)
     print()
-    print(user_category1.name)
-    print(user_category1.description)
-    print(user_category1.products)
+
+    category2 = Category("Телевизоры", "Фоновая подсветка", [products3])
+
+    print(category2.name)
+    print(category2.description)
+    print(category2.products)
+    print(category2.category_count)
+    print(category2.product_count)
     print()
-    print(user_category.category_count)
-    print(user_category.product_count)
+
+    products4 = Product('55" QLED 4K', "Smart TV", 101000.0, 3)
+    category2.add_product(products4)
+
+    print(category2.products)
+    print(category2.product_count)
+    print(category2.category_count)
