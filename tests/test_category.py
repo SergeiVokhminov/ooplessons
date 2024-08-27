@@ -48,3 +48,7 @@ def test_str_products(category: Any) -> Any:
         '50" QLED, 113000.0 руб. Остаток: 3 шт.\n'
         '55" FullHD, 103000.0 руб. Остаток: 5 шт.\n'
     )
+
+
+def test_str_category(second_category):
+    assert str(second_category) == "Смартфоны, количество продуктов: 13 шт."

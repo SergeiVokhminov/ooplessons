@@ -20,6 +20,12 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(self.__products)
 
+    def __str__(self):
+        tot_quantity = 0
+        for i in self.__products:
+            tot_quantity += i.quantity
+        return f"{self.name}, количество продуктов: {tot_quantity} шт."
+
     #  Создаем атрибут как геттер (используя декоратор). Позволяет обращаться к методу, как атрибуту класса.
     #  Данный атрибут будет возвращать строку.
     @property
@@ -27,7 +33,7 @@ class Category:
         """Вывод списка товаров из приватного атрибута."""
         products_str = ""
         for product in self.__products:
-            products_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            products_str += f"{str(product)}\n"
         return products_str
 
     def add_product(self, new_product: Product) -> Any:
@@ -41,11 +47,17 @@ if __name__ == "__main__":
     products2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     products3 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
 
+    print(str(products1))
+    print(str(products2))
+    print(str(products3))
+
     category1 = Category(
         "Смартфоны",
         "Смартфоны, как средство не только коммуникации, " "но и получение дополнительных функций для удобства жизни",
         [products1, products2],
     )
+
+    print(str(category1))
 
     print(category1.name)
     print(category1.description)
@@ -55,6 +67,8 @@ if __name__ == "__main__":
     print()
 
     category2 = Category("Телевизоры", "Фоновая подсветка", [products3])
+
+    print(str(category2))
 
     print(category2.name)
     print(category2.description)
