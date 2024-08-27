@@ -22,6 +22,11 @@ class Product:
         description = new_product.get("description")
         price = new_product.get("price")
         quantity = new_product.get("quantity")
+        # product = cls(name, description, price, quantity)
+        # for prod in product:
+        #     if prod.name ==
+        # cls.products.append()
+
         return cls(name, description, price, quantity)
 
     @property
