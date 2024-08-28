@@ -1,4 +1,5 @@
 from typing import Any
+
 # from src.category import Category
 
 
@@ -76,6 +77,7 @@ if __name__ == "__main__":
     print(prod4.description)
     print(prod4.price)
     print(prod4.quantity)
-    prod5 = Product.new_product({"name": "Iphone 15", "description": "512GB, Gray space", "price": 210000.0, "quantity": 2})
+    prod5 = Product.new_product(
+        {"name": "Iphone 15", "description": "512GB, Gray space", "price": 210000.0, "quantity": 2}
+    )
     print(prod5.quantity)
-

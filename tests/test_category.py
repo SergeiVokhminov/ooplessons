@@ -1,7 +1,7 @@
 from typing import Any
 
-from src.product import Product
 from src.category import Category
+from src.product import Product
 
 
 def test_category_init(first_category: Any, second_category: Any, category: Any) -> Any:
@@ -20,10 +20,7 @@ def test_category_init(first_category: Any, second_category: Any, category: Any)
     assert second_category.category_count == 3
 
     assert category.name == "Телевизоры"
-    assert (
-        category.description
-        == "Фоновая подсветка"
-    )
+    assert category.description == "Фоновая подсветка"
     assert Category.category_count == 3
     assert Category.product_count == 5
 
