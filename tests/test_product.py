@@ -35,3 +35,11 @@ def test_third_product(third_product: Any) -> Any:
     assert new_product.description == "512GB"
     assert new_product.price == 2160000
     assert new_product.quantity == 2
+
+
+def test_str_product(first_product):
+    assert str(first_product) == "Iphone 15, 210000.0 руб. Остаток: 8 шт."
+
+
+def test_add_product(first_product, second_product):
+    assert first_product + second_product == 2640000.0

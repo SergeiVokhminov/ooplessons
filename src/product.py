@@ -1,4 +1,5 @@
 from typing import Any
+
 # from src.category import Category
 
 
@@ -16,16 +17,18 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other):
+        return self.__price * self.quantity + other.__price * other.quantity
+
     @classmethod
     def new_product(cls, new_product: dict) -> Any:
         name = new_product.get("name")
         description = new_product.get("description")
         price = new_product.get("price")
         quantity = new_product.get("quantity")
-        # product = cls(name, description, price, quantity)
-        # for prod in product:
-        #     if prod.name ==
-        # cls.products.append()
 
         return cls(name, description, price, quantity)
 
@@ -74,3 +77,7 @@ if __name__ == "__main__":
     print(prod4.description)
     print(prod4.price)
     print(prod4.quantity)
+    prod5 = Product.new_product(
+        {"name": "Iphone 15", "description": "512GB, Gray space", "price": 210000.0, "quantity": 2}
+    )
+    print(prod5.quantity)

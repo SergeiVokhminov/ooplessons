@@ -42,7 +42,7 @@ def first_category() -> Any:
         name="Смартфоны",
         description="Смартфоны, как средство не только коммуникации, "
         "но и получение дополнительных функций для удобства жизни",
-        products=[("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)],
+        products=[Product("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)],
     )
 
 
@@ -53,8 +53,8 @@ def second_category() -> Any:
         description="Смартфоны, как средство не только коммуникации, "
         "но и получение дополнительных функций для удобства жизни",
         products=[
-            ("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5),
-            ("Iphone 15", "512GB, Gray space", 210000.0, 8),
+            Product("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5),
+            Product("Iphone 15", "512GB, Gray space", 210000.0, 8),
         ],
     )
 
