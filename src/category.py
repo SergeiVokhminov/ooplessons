@@ -38,18 +38,22 @@ class Category:
 
     def add_product(self, new_product: Product) -> Any:
         """Добавление товаров и запись в приватный атрибут списка товаров."""
-        self.__products.append(new_product)
-        Category.product_count += 1
+        if isinstance(new_product, Product):
+            self.__products.append(new_product)
+            Category.product_count += 1
+        else:
+            raise TypeError
 
 
 if __name__ == "__main__":
-    products1 = Product("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    products1 = Product("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 6)
     products2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     products3 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
 
     print(str(products1))
     print(str(products2))
     print(str(products3))
+    print()
 
     category1 = Category(
         "Смартфоны",
