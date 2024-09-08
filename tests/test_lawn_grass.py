@@ -11,7 +11,7 @@ def test_lawn_glass_init(lawn_grass1):
     assert lawn_grass1.color == "Зеленый"
 
 
-def test_smartphone_add(lawn_grass1, lawn_grass2):
+def test_lawn_grass_add(lawn_grass1, lawn_grass2):
     assert lawn_grass1 + lawn_grass2 == 1000.0
 
 
