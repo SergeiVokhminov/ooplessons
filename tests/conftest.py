@@ -4,8 +4,8 @@ import pytest
 
 from src.category import Category
 from src.product import Product
-from src.Smartphone import Smartphone
-from src.LawnGrass import LawnGrass
+from src.smartphone import Smartphone
+from src.lawngrass import LawnGrass
 
 
 @pytest.fixture

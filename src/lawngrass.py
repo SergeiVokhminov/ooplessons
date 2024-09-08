@@ -2,6 +2,7 @@ from src.product import Product
 
 
 class LawnGrass(Product):
+    """Класс категории товаров. Наследник класса Product."""
 
     def __init__(self, name: str, description: str, price: int | float, quantity: int, country, germination_period, color):
         super().__init__(name, description, price, quantity)
