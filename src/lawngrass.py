@@ -4,7 +4,9 @@ from src.product import Product
 class LawnGrass(Product):
     """Класс категории товаров. Наследник класса Product."""
 
-    def __init__(self, name: str, description: str, price: int | float, quantity: int, country, germination_period, color):
+    def __init__(
+        self, name: str, description: str, price: int | float, quantity: int, country, germination_period, color
+    ):
         super().__init__(name, description, price, quantity)
         self.color = color
         self.country = country
@@ -18,7 +20,7 @@ class LawnGrass(Product):
             raise TypeError
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     lawn_grass1 = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
     lawn_grass2 = LawnGrass("Газонная трава", "Элитная трава для газона", 300.0, 10, "Беларусь", "5 дней", "Красный")
     print(lawn_grass1.name)
@@ -30,4 +32,4 @@ if __name__ == '__main__':
     print(lawn_grass1.germination_period)
 
     print(lawn_grass1 + lawn_grass2)
-    print(lawn_grass1 + 'qrwq')
+    print(lawn_grass1 + "qrwq")

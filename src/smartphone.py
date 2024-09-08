@@ -18,7 +18,7 @@ class Smartphone(Product):
             raise TypeError
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     smartphone1 = Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2, "15", 512, "Gray space")
     smartphone2 = Smartphone("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14, 90.3, "Note 11", 1024, "Синий")
 
