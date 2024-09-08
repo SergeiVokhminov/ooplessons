@@ -4,6 +4,8 @@ import pytest
 
 from src.category import Category
 from src.product import Product
+from src.Smartphone import Smartphone
+from src.LawnGrass import LawnGrass
 
 
 @pytest.fixture
@@ -98,3 +100,23 @@ def json_data() -> Any:
             ],
         },
     ]
+
+
+@pytest.fixture
+def smartphone1():
+    return Smartphone("Iphone 15", "512GB, Gray space", 200000.0, 8, 98.2, "15", 512, "Gray space")
+
+
+@pytest.fixture
+def smartphone2():
+    return Smartphone("Iphone 15", "512GB, Gray space", 200000.0, 12, 98.2, "15", 512, "Gray space")
+
+
+@pytest.fixture
+def lawn_grass1():
+    return LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
+
+
+@pytest.fixture
+def lawn_grass2():
+    return LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 10, "Россия", "7 дней", "Зеленый")
