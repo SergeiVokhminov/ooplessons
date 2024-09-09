@@ -1,3 +1,5 @@
+import pytest
+
 from typing import Any
 
 from src.product import Product
@@ -43,3 +45,8 @@ def test_str_product(first_product):
 
 def test_add_product(first_product, second_product):
     assert first_product + second_product == 2640000.0
+
+
+def test_product_zero_quantity():
+    with pytest.raises(ValueError):
+        product = Product(name="Test", description='Test', price=2000, quantity=0)

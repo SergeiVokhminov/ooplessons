@@ -44,6 +44,19 @@ class Category:
         else:
             raise TypeError
 
+    def middle_price(self):
+        try:
+            total_price = 0
+            total_quantity = 0
+            for product in self.__products:
+                total_price += product.price * product.quantity
+                total_quantity += product.quantity
+            full_price = total_price / total_quantity
+        except ZeroDivisionError:
+            return 0
+        else:
+            return round(full_price, 2)
+
 
 if __name__ == "__main__":
     products1 = Product("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 6)
