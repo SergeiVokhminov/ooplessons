@@ -120,3 +120,8 @@ def lawn_grass1():
 @pytest.fixture
 def lawn_grass2():
     return LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 10, "Россия", "7 дней", "Зеленый")
+
+
+@pytest.fixture
+def not_product():
+    return "not_product"
